@@ -1,0 +1,212 @@
+---
+title: "Customer"
+output: html_document
+date: "2026-05-23"
+---
+
+# Customer Retention and Usage Intensity Modeling
+
+## Project Overview
+
+This project analyzes customer ordering behavior using the Instacart Online Grocery Transaction dataset to predict customer retention (churn) and usage intensity.
+
+Using statistical and machine learning methods, this project evaluates customer engagement patterns and identifies models that provide reliable and interpretable business insights.
+
+---
+
+## Objectives
+
+The objectives of this project are to:
+
+- Predict customer churn using behavioral features
+- Model customer usage intensity using count regression techniques
+- Compare statistical and machine learning approaches
+- Select models that balance predictive performance and interpretability
+
+---
+
+## Dataset
+
+### Source
+Instacart Online Grocery Basket Analysis Dataset (Kaggle)
+
+### Dataset Characteristics
+
+- Approximately 3.4 million orders
+- 206,209 customers
+- Transaction level customer ordering data
+
+### Variables Used
+
+| Variable | Description |
+|----------|-------------|
+| user_id | Unique customer identifier |
+| order_number | Number of orders placed |
+| order_dow | Day of week order was placed |
+| order_hour_of_day | Hour order was placed |
+| days_since_prior_order | Number of days between orders |
+
+---
+
+## Methodology
+
+### 1. Data Preprocessing
+
+- Handling missing values
+- Removing unnecessary variables
+- Data cleaning
+
+### 2. Feature Engineering
+
+Customer level behavioral features were created:
+
+- Frequency
+- Total Active Days
+- Average Days Between Orders
+- Recency
+- Churn Label
+
+### 3. Exploratory Data Analysis
+
+Analysis focused on:
+
+- Customer order frequency
+- Churn distribution
+- Over dispersion evaluation
+
+---
+
+## Exploratory Data Analysis Findings
+
+### Customer Frequency Distribution
+
+Customer frequency showed a highly right skewed distribution.
+
+### Churn Distribution
+
+- Retained customers: 69.4%
+- Churned customers: 30.6%
+
+### Over Dispersion
+
+Mean Frequency:
+16.59
+
+Variance:
+277.38
+
+Since variance exceeded the mean, Negative Binomial Regression was determined to be more suitable than Poisson Regression.
+
+---
+
+# Customer Churn Modeling
+
+## Models Evaluated
+
+1. Logistic Regression
+2. Decision Tree
+3. Random Forest
+
+## Model Performance
+
+| Model | AUC | Accuracy |
+|------|------|------|
+| Logistic Regression | 0.811 | 0.764 |
+| Decision Tree | 0.793 | 0.758 |
+| Random Forest | 0.795 | 0.758 |
+
+### Selected Classification Model
+
+**Logistic Regression**
+
+Reason:
+- Highest AUC
+- Best predictive performance
+- Strong interpretability
+
+---
+
+# Usage Intensity Modeling
+
+## Models Evaluated
+
+- Poisson Regression
+- Negative Binomial Regression
+
+## Final Selected Model
+
+### Negative Binomial Regression
+
+Reason:
+
+- Accounts for over dispersion
+- Better statistical validity
+- Lower AIC score
+
+---
+
+## Key Findings
+
+- Customer engagement variables strongly predict churn
+- Higher order frequency reduces churn risk
+- Longer gaps between orders increase churn risk
+- Behavioral variables effectively model customer intensity
+
+---
+
+## Technologies Used
+
+- Python
+- Pandas
+- NumPy
+- Scikit Learn
+- Statsmodels
+- Matplotlib
+- Google Colab
+
+---
+
+## Repository Structure
+
+```plaintext
+Customer-Retention-Usage-Intensity/
+│
+├── data/
+├── notebooks/
+├── reports/
+├── README.md
+└── requirements.txt
+```
+
+---
+
+## Business Impact
+
+This project can help businesses:
+
+- Improve customer retention
+- Forecast customer activity
+- Support targeted marketing campaigns
+- Optimize operational planning
+
+---
+
+## Future Improvements
+
+Potential extensions include:
+
+- Product level analysis
+- Basket level features
+- Spending behavior
+- Time series modeling
+- Advanced machine learning models
+
+
+## Acknowledgements
+
+Dataset:
+Instacart Online Grocery Basket Analysis Dataset
+
+Course:
+DATA 606 Final Project
+University of Calgary
